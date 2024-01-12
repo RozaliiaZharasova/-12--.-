@@ -9,7 +9,5 @@ def create_order(body):
                          json=body)
 
 # Проверяется, что по треку заказа можно получить данные о заказе.
-def get_order(track_number):
-    get_order_url = f"{configuration.BASE_URL}/api/v1/orders/track?t={track_number}"
-    response = requests.get(get_order_url)
-    return response
+def get_order(track):
+    return requests.get(f'{configuration.BASE_URL}{configuration.CREAT_ORDERS}', params = track)
